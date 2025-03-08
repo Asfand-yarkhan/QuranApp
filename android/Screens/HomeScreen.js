@@ -30,9 +30,9 @@ const HomeScreen = () => {
           </TouchableOpacity>
         </View>
         <View style={styles.container22}>
-          <TouchableOpacity style={styles.button1}>
+          <TouchableOpacity style={styles.button1} onPress={()=>navigation.navigate('Surahs')}>
           <Icon  name="search-sharp"  style={styles.Icons}/>
-            <Text style={{fontSize: 25}}>Search</Text>
+            <Text style={{fontSize: 25}}>Surahs</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button1}>
           <Icon  name="settings-sharp"  style={styles.Icons}/>

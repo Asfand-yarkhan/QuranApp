@@ -21,7 +21,7 @@ const Item = ({item}) => {
   return (
     <View style={{flex: 1}}>
       <View style={{flex: 0.2, flexDirection: 'row'}}>
-        <View style={(style = styles.translation)}>
+        <View style={styles.translation}>
           <Text>{item.Translation}</Text>
         </View>
         <View

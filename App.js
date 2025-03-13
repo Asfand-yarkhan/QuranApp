@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './android/Screens/HomeScreen';
 import ReadQuran from './android/Screens/ReadQuranScren';
 import Surahs from './android/Screens/Surahs';
+import SurahDetail from './android/Screens/SurahDetail';
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
       <Stack.Screen name='Home' component={HomeScreen} options={{headerShown:false}}/>
       <Stack.Screen name='ReadQuran' component={ReadQuran}/>
       <Stack.Screen name='Surahs' component={Surahs}/>
+      <Stack.Screen name='SurahDetail' component={SurahDetail}/>
     </Stack.Navigator>
    </NavigationContainer>
   );

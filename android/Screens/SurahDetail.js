@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, FlatList, Button } from 'react-native';
 import React from 'react';
 
-const SurahDetail = ({ surah, onBack }) => {
+const SurahDetail = ({ Surahs, onBack }) => {
     return (
         <View style={styles.container}>
             <Button title="Back" onPress={onBack} />

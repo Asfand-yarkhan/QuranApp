@@ -1,28 +1,22 @@
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, Button } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, Button, ActivityIndicator } from 'react-native';
 import { useEffect, useState } from 'react';
 import React from 'react';
+import  useFetch  from '../component/useFetch';
+import SurahDetail from './SurahDetail';
 
 const Surahs = () => {
-    const [data, setData] = useState([]);
+    const { data, loading, error } = useFetch();
     const [selectedSurah, setSelectedSurah] = useState(null);
 
-    const getAPIData = async () => {
-        const url = 'https://api.alquran.cloud/v1/quran/en.asad';
-        const result = await fetch(url);
-        const jsonData = await result.json();
-        setData(jsonData.data.surahs);
-    };
-
-    useEffect(() => {
-        getAPIData();
-    }, []);
+    if(loading) return <ActivityIndicator size = 'large' color = "black" />;
+    if (error) return <Text>Error while fetching data</Text>;   
 
     return (
         <View style={styles.container}>
             {/* Agar surah select hai to details dikhaye, warna list dikhaye */}
             {selectedSurah ? (
                 <View>
-                    <Button title="Back" onPress={() => setSelectedSurah(null)} />
+                    <Button title="Back" onBack={() => setSelectedSurah(null)} />
                     <Text style={styles.header}>{selectedSurah.englishName} - {selectedSurah.name}</Text>
                     <FlatList
                         data={selectedSurah.ayahs}

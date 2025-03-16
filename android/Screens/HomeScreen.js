@@ -22,21 +22,21 @@ const HomeScreen = () => {
         <View style={styles.container21}>
           <TouchableOpacity style={styles.button1} onPress={()=>navigation.navigate('ReadQuran')}>
             <Icon  name="book-sharp"  style={styles.Icons}/>
-            <Text style={{fontSize: 25}}>Read Quran</Text>
+            <Text style={{fontSize: 19}}>Read Quran</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button1}>
           <Icon  name="bookmarks-sharp"  style={styles.Icons}/>
-            <Text style={{fontSize: 25}}>BookMark</Text>
+            <Text style={{fontSize: 20}}>BookMark</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.container22}>
           <TouchableOpacity style={styles.button1} onPress={()=>navigation.navigate('Surahs')}>
           <Icon  name="search-sharp"  style={styles.Icons}/>
-            <Text style={{fontSize: 25}}>Surahs</Text>
+            <Text style={{fontSize: 21}}>Surahs</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button1}>
           <Icon  name="settings-sharp"  style={styles.Icons}/>
-            <Text style={{fontSize: 25}}>Setting</Text>
+            <Text style={{fontSize: 21}}>Setting</Text>
           </TouchableOpacity>
         </View>
       </View>

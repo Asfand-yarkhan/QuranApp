@@ -1,5 +1,6 @@
 // Code to fetch data from API
 import {useState, useEffect} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const useFetch = () => {
   const [data, setData] = useState([]);
@@ -9,11 +10,21 @@ const useFetch = () => {
   useEffect(() => {
     const getAPIData = async () => {
       try {
-        const response = await fetch(
-          'https://api.alquran.cloud/v1/quran/en.asad',
-        );
+        setLoading(true);
+        const storedData = await AsyncStorage.getItem('surahs');
+        if (storedData) {
+          setData(JSON.parse(storedData));
+          setLoading(false);
+          return;
+        }
+        const response = await fetch('https://api.alquran.cloud/v1/quran/en.asad',);
+        if (!response.ok) throw new Error(`API Error: ${response.status}`);
         const jsonData = await response.json();
         setData(jsonData.data.surahs);
+        await AsyncStorage.setItem(
+          'surahs',
+          JSON.stringify(jsonData.data.surahs),
+        );
       } catch (error) {
         setError(error);
       } finally {

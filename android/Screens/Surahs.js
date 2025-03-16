@@ -16,7 +16,7 @@ const Surahs = () => {
             {/* Agar surah select hai to details dikhaye, warna list dikhaye */}
             {selectedSurah ? (
                 <View>
-                    <Button title="Back" onBack={() => setSelectedSurah(null)} />
+                    <Button title="Back" onPress={() => setSelectedSurah(null)} />
                     <Text style={styles.header}>{selectedSurah.englishName} - {selectedSurah.name}</Text>
                     <FlatList
                         data={selectedSurah.ayahs}

@@ -2,14 +2,17 @@ import {StyleSheet, Text, TouchableOpacity, View,Image} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import React from 'react';
+import { useContext } from 'react';
+import { FontContext } from '../component/FontContext';
 
 
 const HomeScreen = () => {
   const navigation =useNavigation();
+  const { fontSize } = useContext(FontContext);
   return (
     <View style={{flex: 1, backgroundColor: 'blue'}}>
       <View style={styles.container1}>
-        <Text style={styles.quran}>Quran</Text>
+        <Text style={[styles.quran , { fontSize }]}>Quran</Text>
         <Image
         style ={{height:110, width:110, marginTop: '25'}}
         source={{uri: 'https://parspng.com/wp-content/uploads/2022/09/quranpng.parspng.com-12.png'}}
@@ -34,7 +37,7 @@ const HomeScreen = () => {
           <Icon  name="search-sharp"  style={styles.Icons}/>
             <Text style={{fontSize: 21}}>Surahs</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button1}>
+          <TouchableOpacity style={styles.button1} onPress={()=>navigation.navigate('Setting')}>
           <Icon  name="settings-sharp"  style={styles.Icons}/>
             <Text style={{fontSize: 21}}>Setting</Text>
           </TouchableOpacity>
@@ -53,7 +56,7 @@ const styles = StyleSheet.create({
     alignItems:'center'
   },
   quran:{
-    fontSize:35,
+    
     fontWeight:'bold'
   },
   feature: {

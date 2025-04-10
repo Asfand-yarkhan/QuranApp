@@ -25,7 +25,7 @@ const HomeScreen = () => {
         <View style={styles.container21}>
           <TouchableOpacity style={styles.button1} onPress={()=>navigation.navigate('ReadQuran')}>
             <Icon  name="book-sharp"  style={styles.Icons}/>
-            <Text style={{fontSize: 19}}>Read Quran</Text>
+            <Text style={{fontSize}}>Read Quran</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button1}>
           <Icon  name="bookmarks-sharp"  style={styles.Icons}/>
@@ -56,8 +56,9 @@ const styles = StyleSheet.create({
     alignItems:'center'
   },
   quran:{
-    
-    fontWeight:'bold'
+    color:'white',
+  
+    fontWeight:'bold',
   },
   feature: {
     flex: 0.08,
